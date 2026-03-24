@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="page-wrap">
+  <div class="container">
+
+    <div class="post-header">
+      <div class="post-meta">
+        <span class="card-tag">{{ page.category | default: "Project" | upcase }}</span>
+        {% if page.status %}<span class="card-tag">{{ page.status }}</span>{% endif %}
+        {% if page.date %}<span>{{ page.date | date: "%B %Y" }}</span>{% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      {% if page.description %}<p style="color:#777; margin-top:0.5rem;">{{ page.description }}</p>{% endif %}
+      {% if page.tech %}
+      <div class="tech-stack" style="margin-top:1rem;">
+        {% for t in page.tech %}<span>{{ t }}</span>{% endfor %}
+      </div>
+      {% endif %}
+      <div style="margin-top:1.2rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
+        {% if page.github %}<a href="{{ page.github }}" class="btn btn-outline" target="_blank" rel="noopener">GitHub ↗</a>{% endif %}
+        {% if page.demo %}<a href="{{ page.demo }}" class="btn btn-primary" target="_blank" rel="noopener">Live Demo</a>{% endif %}
+      </div>
+    </div>
+
+    <article class="prose">
+      {{ content }}
+    </article>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn-outline">← Back to Projects</a>
+    </div>
+
+  </div>
+</div>

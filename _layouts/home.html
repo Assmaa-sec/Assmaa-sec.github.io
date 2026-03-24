@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="terminal-window fade-up">
+
+      <div class="terminal-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="t-title">assmaa@kali:~/portfolio — zsh</span>
+      </div>
+
+      <div class="terminal-body">
+
+        <div class="prompt-line">
+          <span class="ps1">➜</span>
+          <span class="cmd">whoami</span>
+        </div>
+        <div class="t-output name">Assmaa Zeghaider</div>
+
+        <div class="t-output spacer"></div>
+
+        <div class="prompt-line">
+          <span class="ps1">➜</span>
+          <span class="cmd">cat role.txt</span>
+        </div>
+        <div class="t-output role">Cybersecurity Engineer | AI Security Researcher</div>
+
+        <div class="t-output spacer"></div>
+
+        <div class="prompt-line">
+          <span class="ps1">➜</span>
+          <span class="cmd">ls skills/</span>
+        </div>
+        <div class="t-output tags">
+          <span class="skill-tag">Network Security</span>
+          <span class="skill-tag">AI Security</span>
+          <span class="skill-tag">Penetration Testing</span>
+          <span class="skill-tag">Malware Analysis</span>
+          <span class="skill-tag">CTF</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Cloud Security</span>
+          <span class="skill-tag">Threat Intelligence</span>
+        </div>
+
+        <div class="t-output spacer"></div>
+
+        <div class="prompt-line">
+          <span class="ps1">➜</span>
+          <span class="cursor-block"></span>
+        </div>
+
+        <div class="hero-cta">
+          <a href="{{ '/projects/' | relative_url }}" class="btn btn-primary">View Projects</a>
+          <a href="{{ '/ctf-writeups/' | relative_url }}" class="btn btn-outline">CTF Writeups</a>
+        </div>
+
+      </div><!-- terminal-body -->
+    </div><!-- terminal-window -->
+  </div><!-- hero-inner -->
+</section>
+
+<!-- ===== PAGE CONTENT (from index.md) ===== -->
+{{ content }}

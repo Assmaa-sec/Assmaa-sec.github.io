@@ -1,0 +1,41 @@
+title: Assmaa Zeghaider
+email: ""
+description: "Cybersecurity Engineer | AI Security Researcher"
+baseurl: ""
+url: ""
+
+github_username: "Assmaa-sec"
+linkedin_username: "assmaa-zeghaider-17777a303"
+
+# Build settings — no gem theme; fully custom layouts
+plugins:
+  - jekyll-feed
+
+# Jekyll collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  ctf_writeups:
+    output: true
+    permalink: /ctf-writeups/:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "ctf_writeups"
+    values:
+      layout: "writeup"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - .sass-cache/
