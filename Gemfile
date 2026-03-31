@@ -7,11 +7,11 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 4.4.1"
+# gem "jekyll", "~> 4.4.1"
 # Custom theme — minima not used.
 # For GitHub Pages deployment, comment out the jekyll gem above and
 # uncomment the line below, then run `bundle update github-pages`.
-# gem "github-pages", group: :jekyll_plugins
+gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
