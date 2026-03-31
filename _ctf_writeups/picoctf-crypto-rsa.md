@@ -1,6 +1,6 @@
 ---
-title: "PicoCTF — Mind Your Ps and Qs (RSA Weak Primes)"
-description: "RSA challenge with an unusually small prime factor. Factored the modulus using Fermat's factorization algorithm and recovered the private key."
+title: "PicoCTF - Mind Your Ps and Qs (RSA Weak Primes)"
+description: "RSA challenge with an unusually small modulus. Factored n directly using sympy and recovered the plaintext by computing the private key from scratch."
 platform: "PicoCTF"
 category: "Crypto"
 difficulty: "Medium"
@@ -16,14 +16,14 @@ date: 2026-01-30
 ## Given
 
 ```
-c = 1638...  (ciphertext)
-n = 1615...  (modulus)
-e = 65537    (public exponent)
+c = 964354128913912393938480857590969826308054462950561875638492039
+n = 161576568432146305407822605195988788423367831797410032889526022879964281699322655 29
+e = 65537
 ```
 
 ## Analysis
 
-The modulus `n` was suspiciously small — only 53 digits. Running it through Fermat's factorization confirmed one factor was close to √n.
+The first thing I noticed was how small `n` is, only around 59 digits. Real RSA uses at least 2048-bit keys which is 617+ digits. When `n` is this small you can just factor it directly, no fancy attack needed.
 
 ## Solution
 
@@ -31,31 +31,30 @@ The modulus `n` was suspiciously small — only 53 digits. Running it through Fe
 from sympy import factorint
 from Crypto.Util.number import long_to_bytes
 
-n = 1615765684321463054078226051959887884233678317974...
+n = 16157656843214630540782260519598878842336783179741003288952602287996428169932265529
 e = 65537
-c = 1638...
+c = 964354128913912393938480857590969826308054462950561875638492039
 
-# Factor n
 factors = factorint(n)
 p, q = list(factors.keys())
 
-# Recover private key
 phi = (p - 1) * (q - 1)
-d = pow(e, -1, phi)          # modular inverse
-
-# Decrypt
+d = pow(e, -1, phi)
 m = pow(c, d, n)
+
 print(long_to_bytes(m))
 ```
 
-## Output
+`sympy.factorint` cracked it almost instantly because the primes were close to each other, which makes Fermat's method trivial.
+
+## Flag
 
 ```
-b"picoCTF{sma11_N_n0_g0od_23f0e9b9}"
+picoCTF{sma11_N_n0_g0od_23540368}
 ```
 
-## Lessons
+## What I learned
 
-- RSA security depends entirely on `n` being hard to factor
-- Small primes or primes close to each other break Fermat's factorization
-- Always verify key sizes: `n` should be ≥ 2048 bits in production
+- RSA only works if `n` is hard to factor. A 200-bit modulus has basically no security
+- When primes are close together, `sympy.factorint` or `factordb` will break it right away
+- Key size is not optional, 2048 bits minimum for anything real

