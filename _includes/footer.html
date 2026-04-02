@@ -2,7 +2,11 @@
   <div class="footer-inner">
 
     <p class="footer-copy">
+      {% if page.lang == 'zh' %}
+      &copy; {{ 'now' | date: "%Y" }} <span>{{ site.title }}</span> &mdash; 网络安全工程师 &amp; AI 安全研究员
+      {% else %}
       &copy; {{ 'now' | date: "%Y" }} <span>{{ site.title }}</span> &mdash; Cybersecurity Engineer &amp; AI Security Researcher
+      {% endif %}
     </p>
 
     <ul class="footer-links">
@@ -12,7 +16,11 @@
       {% if site.linkedin_username and site.linkedin_username != "" %}
       <li><a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
       {% endif %}
+      {% if page.lang == 'zh' %}
+      <li><a href="{{ '/zh/contact/' | relative_url }}">联系</a></li>
+      {% else %}
       <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      {% endif %}
     </ul>
 
   </div>

@@ -28,7 +28,11 @@ layout: default
           <span class="ps1">➜</span>
           <span class="cmd">cat role.txt</span>
         </div>
+        {% if page.lang == 'zh' %}
+        <div class="t-output role">网络安全工程师 | AI 安全研究员</div>
+        {% else %}
         <div class="t-output role">Cybersecurity Engineer | AI Security Researcher</div>
+        {% endif %}
 
         <div class="t-output spacer"></div>
 
@@ -36,6 +40,18 @@ layout: default
           <span class="ps1">➜</span>
           <span class="cmd">ls skills/</span>
         </div>
+        {% if page.lang == 'zh' %}
+        <div class="t-output tags">
+          <span class="skill-tag">网络安全</span>
+          <span class="skill-tag">AI 安全</span>
+          <span class="skill-tag">渗透测试</span>
+          <span class="skill-tag">恶意软件分析</span>
+          <span class="skill-tag">CTF</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">云安全</span>
+          <span class="skill-tag">威胁情报</span>
+        </div>
+        {% else %}
         <div class="t-output tags">
           <span class="skill-tag">Network Security</span>
           <span class="skill-tag">AI Security</span>
@@ -46,6 +62,7 @@ layout: default
           <span class="skill-tag">Cloud Security</span>
           <span class="skill-tag">Threat Intelligence</span>
         </div>
+        {% endif %}
 
         <div class="t-output spacer"></div>
 
@@ -54,10 +71,17 @@ layout: default
           <span class="cursor-block"></span>
         </div>
 
+        {% if page.lang == 'zh' %}
+        <div class="hero-cta">
+          <a href="{{ '/zh/projects/' | relative_url }}" class="btn btn-primary">查看项目</a>
+          <a href="{{ '/zh/ctf-writeups/' | relative_url }}" class="btn btn-outline">CTF 题解</a>
+        </div>
+        {% else %}
         <div class="hero-cta">
           <a href="{{ '/projects/' | relative_url }}" class="btn btn-primary">View Projects</a>
           <a href="{{ '/ctf-writeups/' | relative_url }}" class="btn btn-outline">CTF Writeups</a>
         </div>
+        {% endif %}
 
       </div><!-- terminal-body -->
     </div><!-- terminal-window -->

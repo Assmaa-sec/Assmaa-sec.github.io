@@ -11,11 +11,24 @@
 
     <nav aria-label="Main navigation">
       <ul class="nav-links">
+        {% if page.lang == 'zh' %}
+        <li><a href="{{ '/zh/' | relative_url }}">首页</a></li>
+        <li><a href="{{ '/zh/about/' | relative_url }}">关于</a></li>
+        <li><a href="{{ '/zh/projects/' | relative_url }}">项目</a></li>
+        <li><a href="{{ '/zh/ctf-writeups/' | relative_url }}">CTF 题解</a></li>
+        <li><a href="{{ '/zh/contact/' | relative_url }}">联系</a></li>
+        {% assign en_url = page.url | remove_first: '/zh' %}
+        {% if en_url == '' %}{% assign en_url = '/' %}{% endif %}
+        <li><a href="{{ en_url | relative_url }}" class="lang-switch">EN</a></li>
+        {% else %}
         <li><a href="{{ '/' | relative_url }}">Home</a></li>
         <li><a href="{{ '/about/' | relative_url }}">About</a></li>
         <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
         <li><a href="{{ '/ctf-writeups/' | relative_url }}">CTF Writeups</a></li>
         <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+        {% assign zh_url = '/zh' | append: page.url %}
+        <li><a href="{{ zh_url | relative_url }}" class="lang-switch">中文</a></li>
+        {% endif %}
       </ul>
     </nav>
 
