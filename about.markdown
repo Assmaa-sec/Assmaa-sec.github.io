@@ -52,48 +52,63 @@ permalink: /about/
   </div>
 
   <div>
-    <div class="section-label" style="margin-bottom:1rem;">Experience</div>
-
-    <div class="timeline-item">
-      <div class="tl-dot">SEC</div>
-      <div class="tl-body">
-        <div class="tl-title">IT Security Intern</div>
-        <div class="tl-org">Bank of Africa — Casablanca, Morocco</div>
-        <div class="tl-date">July – August 2025</div>
-        <p>Supported the internal security team by reviewing system logs, investigating unusual activity on employee machines, and assisting with documentation of common security issues and mitigation practices.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tl-dot">SWE</div>
-      <div class="tl-body">
-        <div class="tl-title">Software Engineering Intern</div>
-        <div class="tl-org">Shopify — Remote</div>
-        <div class="tl-date">July – September 2024</div>
-        <p>Contributed to Shopify's internal developer platforms by building backend automation tools, optimizing REST API workflows, and assisting with backend automation scripts during a remote internship.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tl-dot">SUP</div>
-      <div class="tl-body">
-        <div class="tl-title">Remote Technical Support Specialist</div>
-        <div class="tl-org">5CA — Part-time</div>
-        <div class="tl-date">2022 – 2023</div>
-        <p>Provided bilingual Chinese–English technical support for international customers, troubleshooting software, account, and connectivity issues, documenting incidents, and escalating complex cases as needed.</p>
-      </div>
-    </div>
-
-    <div class="section-label" style="margin-top:2rem; margin-bottom:1rem;">Certifications &amp; Awards</div>
+    <div class="section-label" style="margin-bottom:1rem;">Certifications &amp; Awards</div>
 
     <div class="skill-group">
       <h4>Security &amp; Technical</h4>
-      <ul class="skill-list">
-        <li>CompTIA Security+ — Dion Training / Udemy</li>
-        <li>Ethical Hacking — zSecurity / Udemy</li>
-        <li>Cybersecurity &amp; Cryptography: Secure Data &amp; Networks — Udemy</li>
-        <li>Cryptography Fundamentals — Vimal Daga / Udemy</li>
-      </ul>
+      <div class="timeline-item">
+        <div class="tl-dot">SEC+</div>
+        <div class="tl-body">
+          <div class="tl-title">CompTIA Security+</div>
+          <div class="tl-org">Dion Training / Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">ETH</div>
+        <div class="tl-body">
+          <div class="tl-title">Ethical Hacking</div>
+          <div class="tl-org">zSecurity / Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">CYB</div>
+        <div class="tl-body">
+          <div class="tl-title">Cybersecurity &amp; Cryptography: Secure Data &amp; Networks</div>
+          <div class="tl-org">Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">CRY</div>
+        <div class="tl-body">
+          <div class="tl-title">Cryptography Fundamentals</div>
+          <div class="tl-org">Vimal Daga / Udemy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Programming &amp; AI</h4>
+      <div class="timeline-item">
+        <div class="tl-dot">PY</div>
+        <div class="tl-body">
+          <div class="tl-title">The Complete Python Bootcamp</div>
+          <div class="tl-org">Dr. Angela Yu / Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">AI</div>
+        <div class="tl-body">
+          <div class="tl-title">Artificial Intelligence A-Z</div>
+          <div class="tl-org">SuperDataScience Team / Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">ML</div>
+        <div class="tl-body">
+          <div class="tl-title">Machine Learning A-Z</div>
+          <div class="tl-org">SuperDataScience Team / Udemy</div>
+        </div>
+      </div>
     </div>
 
     <div class="skill-group">

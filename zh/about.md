@@ -53,48 +53,63 @@ permalink: /zh/about/
   </div>
 
   <div>
-    <div class="section-label" style="margin-bottom:1rem;">工作经历</div>
-
-    <div class="timeline-item">
-      <div class="tl-dot">SEC</div>
-      <div class="tl-body">
-        <div class="tl-title">IT 安全实习生</div>
-        <div class="tl-org">非洲银行 (Bank of Africa) &mdash; 摩洛哥卡萨布兰卡</div>
-        <div class="tl-date">2025年7月 &ndash; 8月</div>
-        <p>协助内部安全团队审查系统日志，排查员工终端的异常活动，并参与常见安全问题及处置措施的文档整理工作。</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tl-dot">SWE</div>
-      <div class="tl-body">
-        <div class="tl-title">软件工程实习生</div>
-        <div class="tl-org">Shopify &mdash; 远程</div>
-        <div class="tl-date">2024年7月 &ndash; 9月</div>
-        <p>参与 Shopify 内部开发者平台建设，构建后端自动化工具，优化 REST API 工作流程，并协助编写后端自动化脚本。</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tl-dot">SUP</div>
-      <div class="tl-body">
-        <div class="tl-title">远程技术支持专员</div>
-        <div class="tl-org">5CA &mdash; 兼职</div>
-        <div class="tl-date">2022 &ndash; 2023</div>
-        <p>为国际用户提供中英双语技术支持，处理软件、账号及网络连接问题，记录工单并对复杂案例进行升级处理。</p>
-      </div>
-    </div>
-
-    <div class="section-label" style="margin-top:2rem; margin-bottom:1rem;">证书与荣誉</div>
+    <div class="section-label" style="margin-bottom:1rem;">证书与荣誉</div>
 
     <div class="skill-group">
       <h4>安全与技术</h4>
-      <ul class="skill-list">
-        <li>CompTIA Security+ &mdash; Dion Training / Udemy</li>
-        <li>道德黑客技术 (Ethical Hacking) &mdash; zSecurity / Udemy</li>
-        <li>网络安全与密码学 &mdash; Udemy</li>
-        <li>密码学基础 &mdash; Vimal Daga / Udemy</li>
-      </ul>
+      <div class="timeline-item">
+        <div class="tl-dot">SEC+</div>
+        <div class="tl-body">
+          <div class="tl-title">CompTIA Security+</div>
+          <div class="tl-org">Dion Training / Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">ETH</div>
+        <div class="tl-body">
+          <div class="tl-title">道德黑客技术 (Ethical Hacking)</div>
+          <div class="tl-org">zSecurity / Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">CYB</div>
+        <div class="tl-body">
+          <div class="tl-title">网络安全与密码学</div>
+          <div class="tl-org">Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">CRY</div>
+        <div class="tl-body">
+          <div class="tl-title">密码学基础</div>
+          <div class="tl-org">Vimal Daga / Udemy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>编程与人工智能</h4>
+      <div class="timeline-item">
+        <div class="tl-dot">PY</div>
+        <div class="tl-body">
+          <div class="tl-title">Python 完全训练营</div>
+          <div class="tl-org">Dr. Angela Yu / Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">AI</div>
+        <div class="tl-body">
+          <div class="tl-title">人工智能 A-Z 训练营</div>
+          <div class="tl-org">SuperDataScience Team / Udemy</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-dot">ML</div>
+        <div class="tl-body">
+          <div class="tl-title">机器学习 A-Z 训练营</div>
+          <div class="tl-org">SuperDataScience Team / Udemy</div>
+        </div>
+      </div>
     </div>
 
     <div class="skill-group">
