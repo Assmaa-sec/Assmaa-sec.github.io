@@ -44,6 +44,19 @@ permalink: /zh/contact/
         </div>
       </div>
 
+      <div class="contact-item">
+        <div class="ci-icon">WC</div>
+        <div class="ci-body">
+          <div class="ci-label">微信</div>
+          <div class="ci-value" style="margin-top:0.8rem;">
+            <img src="{{ '/assets/wechat-qr.jpg' | relative_url }}"
+                 alt="微信二维码"
+                 style="width:140px; height:140px; border:1px solid rgba(0,255,65,0.2); border-radius:4px; display:block;">
+            <span style="font-size:0.75rem; color:#555; margin-top:0.4rem; display:block;">扫码添加微信</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
