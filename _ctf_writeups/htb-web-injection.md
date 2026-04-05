@@ -33,9 +33,11 @@ The page returned `49`. That confirmed SSTI.
 
 From here I needed to get to a class that can run shell commands. In Python you can walk the MRO chain from any string to get to `object`, then list all its subclasses and find one like `subprocess.Popen`:
 
+{% raw %}
 ```python
 {{''.__class__.__mro__[1].__subclasses__()[OFFSET]('cat /flag.txt',shell=True,stdout=-1).communicate()}}
 ```
+{% endraw %}
 
 The tricky part is the index changes depending on the environment. I just iterated through them until one worked.
 
@@ -43,9 +45,11 @@ The tricky part is the index changes depending on the environment. I just iterat
 
 The app was blocking underscores in the URL, which broke the payload. I worked around it by passing the attribute names as GET parameters instead:
 
+{% raw %}
 ```
 GET /{{request.args.c|attr(request.args.a)|attr(request.args.b)}}?c=''&a=__class__&b=__mro__
 ```
+{% endraw %}
 
 This keeps underscores out of the URL path entirely. You can chain the whole payload this way.
 
